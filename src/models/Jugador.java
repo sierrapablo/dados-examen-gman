@@ -8,11 +8,14 @@ public class Jugador {
     private Dado dado;
     private int result;
 
-    public Jugador(String name, int numCaras) {
+    public Jugador(String name) {
         this.name = name;
-        this.numCaras = numCaras;
-        this.dado = new Dado(numCaras);
+        this.dado = new Dado();
         this.result = 0;
+    }
+    
+    public void setNumCaras(int numCaras) {
+        this.dado.setNumCaras(numCaras);
     }
 
     public int lanzarDado() {

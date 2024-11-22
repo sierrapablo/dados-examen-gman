@@ -6,10 +6,17 @@ public class Juego {
     private int numTiradas;
     private String mensajeFinal = "El juego no ha acabado.";
 
-    public Juego(String name1, String name2, int numTiradas) {
-        this.jug1 = new Jugador(name1, 6);
-        this.jug2 = new Jugador(name2, 7);
+    public Juego(
+        String name1, int numCaras1,
+        String name2, int numCaras2,
+        int numTiradas
+    ) {
+        this.jug1 = new Jugador(name1);
+        this.jug2 = new Jugador(name2);
         this.numTiradas = numTiradas;
+
+        jug1.setNumCaras(numCaras1);
+        jug2.setNumCaras(numCaras2);
     }
 
     public Jugador compararResult(Jugador jug1, Jugador jug2) {

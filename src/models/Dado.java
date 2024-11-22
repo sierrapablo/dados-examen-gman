@@ -3,7 +3,7 @@ package models;
 public class Dado {
     private int numCaras;
 
-    public Dado(int numCaras) {
+    public void setNumCaras(int numCaras) {
         this.numCaras = numCaras;
     }
 
