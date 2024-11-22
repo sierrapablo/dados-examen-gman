@@ -16,9 +16,9 @@ public class Main {
     static int numTiradas = 10;
     
         public static void main(String[] args) {
-            String mensajeFinal; // Inicializamos el mensaje final
 
             System.out.println("Preparando la partida...");
+
             // Creamos la partida con las variables definidas anteriormente
             Juego partidaDados = new Juego(
                 jugador1Nombre, numCarasDado1,
@@ -26,8 +26,9 @@ public class Main {
                 numTiradas
             );
 
-            // Comprobamos el estado de la partida. Así vemos cómo se comportan los atributos de los distintos objetos.
             System.out.println("Partida lista para empezar:");
+
+            // Comprobamos el estado de la partida. Así vemos cómo se comportan los atributos de los distintos objetos.
             /*
              * Vamos a llamar al método de getJug1 y getJug2 de la clase Juego
              * a través de la instancia partidaDados. Como queremos
@@ -56,6 +57,7 @@ public class Main {
              */
             Jugador ganador = partidaDados.jugar();
 
+            // Partida resuelta, ganador es una instancia de la clase Jugador, que es un atributo de partidaDados, que es una instancia de la clase Juego
             System.out.println("¡Tiradas completadas!");
             
             /* Montamos el mensaje de final de partida
@@ -63,17 +65,18 @@ public class Main {
              * Si la instancia ganador no es nula, es que hay un ganador; pero
              * por el contrario, si es null, significa que ha habido un empate.
              */
+            String mensajeFinal; // usamos una variable local para almacenar el mensaje
             if (ganador != null) {
                 mensajeFinal = (
-                    "El jugador " + ganador.getName() +
-                    " ha ganado con una puntuación de " + ganador.getResult() +
-                    " en " + numTiradas + " tiradas."
+                    "El jugador " + ganador.getName() + // llamamos al método getName de Jugador a traves de la instancia ganador
+                    " ha ganado con una puntuación de " + ganador.getResult() + // llamamos al método getResult de Jugador a traves de la instancia ganador
+                    " en " + numTiradas + " tiradas." // recuperamos el número de tiradas que se han empleado en la partida
                 );
             } else {
+                // si ganador es null, el juego fue tablas
                 mensajeFinal = ("El juego ha terminado en empate.");
             }
-
-        // Mostramos el resultado final de la partida
-        System.out.println(mensajeFinal);
+                // Mostramos el resultado final de la partida
+                System.out.println(mensajeFinal);
     }
 }
