@@ -32,7 +32,15 @@ public class Juego {
         }
     }
 
-    public String jugar() {
+    public Jugador getJug1() {
+        return jug1;
+    }
+
+    public Jugador getJug2() {
+        return jug2;
+    }
+
+    public Jugador jugar() {
         int result1 = 0;
         int result2 = 0;
 
@@ -46,16 +54,7 @@ public class Juego {
 
         Jugador ganador = compararResult(jug1, jug2);
 
-        if (ganador == null) {
-            mensajeFinal = ("Ha sido empate");
-        }
-
-        mensajeFinal = (
-            "El jugador " + ganador.getName() +
-            " ha ganado con una puntuación de " + ganador.getResult() +
-            " con un total de " + numTiradas + " tiradas."
-        );
-        return mensajeFinal;
+        return ganador;
     }
 }
 

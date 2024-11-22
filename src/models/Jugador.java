@@ -4,7 +4,6 @@ import java.util.Random;
 
 public class Jugador {
     private String name;
-    private int numCaras;
     private Dado dado;
     private int result;
 
@@ -13,9 +12,20 @@ public class Jugador {
         this.dado = new Dado();
         this.result = 0;
     }
-    
-    public void setNumCaras(int numCaras) {
+
+    /*
+     * Aquí he hecho estas funciones así porque realmente el número de caras
+     * no debería ser un atributo de Jugador, sino un valor que le asigna
+     * a su atributo Dado. Por lo tanto, un jugador asignará el valor del
+     * atributo numCaras de su atributo Dado y devolverá el número de
+     * caras que devuelva el valor del atributo numCaras de su atributo Dado.
+     */
+    public void setNumCaras(int numCaras) { // Envía el valor de numCaras hacia su atributo Dado
         this.dado.setNumCaras(numCaras);
+    }
+
+    public int getNumCaras() { // recibe el valor de numCaras de su atributo Dado
+        return dado.getNumCaras();
     }
 
     public int lanzarDado() {
@@ -34,8 +44,5 @@ public class Jugador {
     public int getResult() {
         return result;
     }
-
-    public int getNumCaras() {
-        return numCaras;
-    }
+    
 }
